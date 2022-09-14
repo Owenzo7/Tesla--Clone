@@ -70,7 +70,7 @@ const ItemText = styled.div`
 
 padding-top:15vh;
 text-align: center;
-z-index: 10;
+
 `
 
 const ButtonGroup = styled.div`
