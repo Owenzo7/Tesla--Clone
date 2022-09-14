@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
-// import { useState } from 'react'
+import { selectCars } from '../features/car/CarSlice'
+import { useSelector } from 'react-redux'
 
 
 function Header() {
@@ -10,6 +11,10 @@ function Header() {
   
 
   const [burgerStatus, setBurgerStatus] = useState(false);
+  
+
+  const cars = useSelector(selectCars)
+
 
   return (
     <Container>
@@ -20,10 +25,11 @@ function Header() {
         
         <Menu>
 
-          <a href="#">Model S</a>
-          <a href="#">Model 3</a>
-          <a href="#">Model X</a>
-          <a href="#">Model Y</a>
+          {cars && cars.map((car, index)=>(
+          
+          <a key = {index} href="#">{car}</a>
+
+          ))}
 
         </Menu>
 
@@ -46,14 +52,18 @@ function Header() {
 
           </CloseWrapper>
 
+          {cars && cars.map((car, index)=>(
+          
+          <li key = {index}><a href="#">{car}</a></li>
+
+          ))}
+
           <li><a href="#">Existing Inventory</a></li>
           <li><a href="#">Used Inventory</a></li>
           <li><a href="#">Trade-in</a></li>
           <li><a href="#">CyberTruck</a></li>
           <li><a href="#">Roadster</a></li>
-          <li><a href="#">Existing Inventory</a></li>
-          <li><a href="#">Existing Inventory</a></li>
-          <li><a href="#">Existing Inventory</a></li>
+    
         </Burgernav>
 
         </Container>
