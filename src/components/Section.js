@@ -11,6 +11,8 @@ function Section() {
                 
     </ItemText>
 
+    <Buttons>
+
     <ButtonGroup>
 
         <LeftButton>
@@ -28,6 +30,7 @@ function Section() {
 
         <DownArrow src="/images/down-arrow.svg" />
         
+        </Buttons>
         
 </Wrap>
   )
@@ -77,6 +80,7 @@ opacity:0.85;
 text-transform: uppercase;
 font-size: 12px;
 cursor:pointer;
+margin:8px;
 
 `
 
@@ -86,7 +90,17 @@ const RightButton = styled(LeftButton)`
 
 `
 
-const DownArrow = styled.div`
+const DownArrow = styled.img`
+
+
+height:40px;
+overflow-x :hidden;
+animation: animateDown infinite 1.5s;
+`
+
+const Buttons = styled.div`
+
 
 
 `
+
