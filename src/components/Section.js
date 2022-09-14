@@ -1,13 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 
-function Section() {
+function Section({title, description, leftBtnText, rightBtnText, backgroundImg}) {
+
   return (
-    <Wrap>
+    <Wrap bgImage = {backgroundImg}>
         
        <ItemText>
-            <h1>Model S</h1>
-            <p>Order Online for Touchless Delivery</p>
+            <h1>{ title }</h1>
+            <p>{ description }</p>
                 
     </ItemText>
 
@@ -16,14 +17,19 @@ function Section() {
     <ButtonGroup>
 
         <LeftButton>
-            Custom Order
+            { leftBtnText }
         </LeftButton>
 
-        <RightButton>
+            {rightBtnText && 
+            
+            <RightButton>
 
-            Existing Inventory
+            { rightBtnText }
 
         </RightButton>
+            
+            }
+       
 
     </ButtonGroup>
 
@@ -50,6 +56,7 @@ display:flex;
 flex-direction:column;
 justify-content:space-between;
 align-items: center;
+background-image: ${props => `url("/images/${props.bgImage}")`}
 
 `
 
@@ -63,6 +70,11 @@ const ButtonGroup = styled.div`
 
 display:flex;
 margin-bottom: 30px;
+
+@media(max-width: 768px) {
+
+  flex-direction:column;
+}
 
 `
 
@@ -87,6 +99,9 @@ margin:8px;
 
 const RightButton = styled(LeftButton)`
 
+background:white;
+opacity:0.65;
+color:black;
 
 `
 
